@@ -1,0 +1,42 @@
+import java.io.*;
+import java.util.*;
+
+public class Exercise12_30 
+{
+
+	public static void main(String[] args) throws FileNotFoundException 
+	{
+		
+        File file = new File("letterFile.txt");
+
+        if (!file.exists()) 
+        {
+            System.out.println(file + " doesn't exist");
+            System.exit(1);
+        }
+        
+        Scanner input = new Scanner(file);
+        
+        String line = "";
+        while(input.hasNextLine())
+        {
+        	line += input.nextLine();
+        }
+        input.close();
+        line = line.toUpperCase();
+        int count = 0;
+        int j;
+        int i;
+        for (j = 65; j < 91; j++)
+        {
+        	for (i = 0; i < line.length(); i++)
+        	{
+        		if(line.charAt(i) == (char)j)
+        			count++;
+        	}
+        	System.out.println((char)j + " = " + count);
+        	count = 0;
+        }
+       
+	}	
+}
